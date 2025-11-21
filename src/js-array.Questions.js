@@ -23,7 +23,7 @@
 
 // console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 
-//2. Find the Second Largest Number
+// 2. Find the Second Largest Number
 
 // function secondLargest(arr) {
 
@@ -80,20 +80,51 @@
 
 // console.log(pairSum([1, 3, 2, 2, 4, 5], 5));
 
+// 6. Rotate an Array by k Positions
+
+// function rotate(arr, target) {
+//   for (let i = 0; i < target; i++) {
+//     const last= arr[arr.length-1]
+//      arr.pop()
+//      arr.unshift(last)
+
+//   }
+
+//   return arr
+// }
+
+// console.log(rotate([1, 2, 3, 4, 5], 2))
+
+// 7. Find the Missing Number in a Range
+
+// function missing(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (i + 1 != arr[i]) {
+//       return i + 1;
+//     }
+//   }
+// }
+
+// console.log(missing([1, 2, 4, 5]));
+
+function chunk(arr, target) {
 
 
-function rotate(arr, target) {
-  for (let i = 0; i < target; i++) {
-    const last= arr[arr.length-1]
-     arr.pop()
-     arr.unshift(last)
+  let res = [];
+
+  let de = Math.floor(arr.length / target);
+  console.log('this is de',de)
+
+  let i = 0;
+   
+  while (i < arr.length) {
+   if (de) {
     
+   }
   }
 
-  return arr
+
+  console.log('hello world ',res)
 }
 
-
-console.log(rotate([1, 2, 3, 4, 5], 2)) 
-
-
+chunk([1, 2, 3, 4, 5, 6, 7], 3); // [[1,2,3],[4,5,6],[7]]
