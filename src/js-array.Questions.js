@@ -82,30 +82,30 @@
 
 // 6. Rotate an Array by k Positions
 
-// function rotate(arr, target) {
-//   for (let i = 0; i < target; i++) {
-//     const last= arr[arr.length-1]
-//      arr.pop()
-//      arr.unshift(last)
+function rotate(arr, target) {
+  for (let i = 0; i < target; i++) {
+    const last= arr[arr.length-1]
+     arr.pop()
+     arr.unshift(last)
 
-//   }
+  }
 
-//   return arr
-// }
+  return arr
+}
 
-// console.log(rotate([1, 2, 3, 4, 5], 2))
+console.log(rotate([1, 2, 3, 4, 5], 2))
 
 // 7. Find the Missing Number in a Range
 
-// function missing(arr) {
-//   for (let i = 0; i < arr.length; i++) {
-//     if (i + 1 != arr[i]) {
-//       return i + 1;
-//     }
-//   }
-// }
+function missing(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (i + 1 != arr[i]) {
+      return i + 1;
+    }
+  }
+}
 
-// console.log(missing([1, 2, 4, 5]));
+console.log(missing([1, 2, 4, 5]));
 
 function chunk(arr, target) {
 
@@ -128,3 +128,4 @@ function chunk(arr, target) {
 }
 
 chunk([1, 2, 3, 4, 5, 6, 7], 3); // [[1,2,3],[4,5,6],[7]]
+
