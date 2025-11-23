@@ -25,40 +25,40 @@
 
 // 2. Find the Second Largest Number
 
-// function secondLargest(arr) {
+function secondLargest(arr) {
 
-//     let Largest=0
-//     let secondLargest=0
+    let Largest=0
+    let secondLargest=0
 
-//     for(let i=0;i<arr.length;i++){
-//       if(arr[i]>Largest){
-//         secondLargest=Largest
-//          Largest=arr[i]
-//       }else if(arr[i]>secondLargest&&secondLargest!==Largest){
-//          secondLargest=arr[i]
-//       }
-//     }
+    for(let i=0;i<arr.length;i++){
+      if(arr[i]>Largest){
+        secondLargest=Largest
+         Largest=arr[i]
+      }else if(arr[i]>secondLargest&&secondLargest!==Largest){
+         secondLargest=arr[i]
+      }
+    }
 
-//     return secondLargest
-// }
+    return secondLargest
+}
 
-// console.log(secondLargest([10, 5, 8, 20, 3]) );
+console.log(secondLargest([10, 5, 8, 20, 3]) );
 
-// function flatten(arr) {
-//     let result=[]
-//  for(let num of arr){
-//     if (Array.isArray(num)) {
+function flatten(arr) {
+    let result=[]
+ for(let num of arr){
+    if (Array.isArray(num)) {
 
-//         result=result.concat(flatten(num))
-//     }else{
-//         result.push(num)
-//     }
-//  }
+        result=result.concat(flatten(num))
+    }else{
+        result.push(num)
+    }
+ }
 
-// return result
+return result
 
-// }
-// console.log(flatten([1, [2, [3, 4], 5]]))
+}
+console.log(flatten([1, [2, [3, 4], 5]]))
 
 // 5. Find Pairs With a Given Sum
 
