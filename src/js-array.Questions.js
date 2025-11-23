@@ -62,23 +62,23 @@
 
 // 5. Find Pairs With a Given Sum
 
-// function pairSum(arr,target) {
+function pairSum(arr,target) {
 
-//     let pairs=[]
-//     for (let i = 0; i < arr.length; i++) {
-//           for (let j = i+1; j < arr.length; j++) {
-//                if (arr[i]+arr[j]==target) {
-//                   pairs.push([arr[i],arr[j]])
-//                   break
-//                }
-//           }
+    let pairs=[]
+    for (let i = 0; i < arr.length; i++) {
+          for (let j = i+1; j < arr.length; j++) {
+               if (arr[i]+arr[j]==target) {
+                  pairs.push([arr[i],arr[j]])
+                  break
+               }
+          }
 
-//     }
+    }
 
-//     return pairs
-// }
+    return pairs
+}
 
-// console.log(pairSum([1, 3, 2, 2, 4, 5], 5));
+console.log(pairSum([1, 3, 2, 2, 4, 5], 5));
 
 // 6. Rotate an Array by k Positions
 
