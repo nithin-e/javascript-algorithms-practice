@@ -1,27 +1,27 @@
 // 1. Remove Duplicates Without Using Set
 
-// function removeDuplicates(arr) {
-//   const freq = {};
-//   for (let num of arr) {
-//     if (freq[num]) {
-//       freq[num]++;
-//     } else {
-//       freq[num] = 1;
-//     }
-//   }
+function removeDuplicates(arr) {
+  const freq = {};
+  for (let num of arr) {
+    if (freq[num]) {
+      freq[num]++;
+    } else {
+      freq[num] = 1;
+    }
+  }
 
-//   let res = [];
+  let res = [];
 
-//   for (let i in freq) {
-//     if (freq[i] == 1) {
-//       res.push(Number(i));
-//     }
-//   }
+  for (let i in freq) {
+    if (freq[i] == 1) {
+      res.push(Number(i));
+    }
+  }
 
-//   return res;
-// }
+  return res;
+}
 
-// console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 
 // 2. Find the Second Largest Number
 
