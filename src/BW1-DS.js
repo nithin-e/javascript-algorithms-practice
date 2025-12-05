@@ -11,7 +11,7 @@ class LinkedList {
     this.tail = null;
   }
 
-  append(data) {
+  add(data) {
     const Newnode = new Node(data);
 
     if (!this.head) {
@@ -23,110 +23,47 @@ class LinkedList {
     }
   }
 
-  findMiddle() {
-    let slow = this.head;
-    let fast = this.head;
-    let prev = null;
-    while (fast !== null && fast.next !== null) {
-      prev = slow;
-      slow = slow.next;
-      fast = slow.next.next;
+  palindrom(){
+
+   
+    let slow=this.head
+    let fast=this.head
+
+    while(fast!=null&&fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
     }
 
-    prev.next = slow.next;
+    
+   let prev=null;
+   let current=slow;
+   let temp=null
+   
+   while (current) {
+    temp=current.next
+    current.next=prev
+    prev=current
+    current=temp
+   }
+
+   let left=this.head;
+   let right =prev  
+
+   while (right) {
+    if (left.data!==right.data) {
+      return false
+    }
+    left=left.next;
+    right=right.next
+   }
+
+   return true
+
   }
 
-  deleteValue(value) {
-    if (this.head.data == value) {
-      this.head = this.head.next;
-      return;
-    } else {
-      let current = this.head;
-      let prev = null;
-
-      while (current) {
-        if (current.data == value) {
-          break;
-        }
-        prev = current;
-        current = current.next;
-      }
-      prev.next = current.next;
-    }
-  }
-
-  removeDuplicate(){
-    let set=new Set()
-    let current=this.head;
-    let prev=null
-     while (current) {
-       
-        if (set.has(current.data)) {
-              prev.next=current.next
-        }else{
-            set.add(current.data)
-        }
-        prev=current
-        current=current.next
-     }
-  }
-
- reverce(){
-     
-    let current=this.head;
-    let prev=null;
-    let temp=null
-
-    while(current){
-     temp=current.next
-     current.next=prev
-     prev=current
-     current=temp
-    }
-
-    this.head=prev
-    this.tail=this.head
- }
-
- findMax(){
-
-    let current=this.head;
-    let max=this.head.data
-
-    while(current){
-       if (current.data>max) {
-         max=current.data
-       }
-
-       current=current.next
-    }
-
-    return max
- }
-
- secontLargest(){
-    let Largest=-Infinity
-    let secondLargest=-Infinity
-    let current=this.head
-
-    while (current) {
-        if(current.data>Largest){
-           secondLargest=Largest;
-           Largest=current.data
-        }else if(current.data<Largest&&current.data!=Largest){
-         secondLargest=current.data
-        }
-        current=current.next
-    }
-
-    return secondLargest
- }
-
- 
-
-
-  display() {
+  displayy() {
     let current = this.head;
+
     while (current) {
       console.log(current.data);
       current = current.next;
@@ -135,20 +72,16 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.append(10);
-list.append(20);
-list.append(30);
-list.append(300);
-list.append(40);
-list.append(50);
 
-// list.findMiddle()
-// list.deleteValue(50);
-// list.removeDuplicate()
-// list.display();
-// list.reverce()
-// console.log(list.findMax())
-console.log(list.secontLargest())
+list.add("m");
+list.add("a");
+list.add("d");
+list.add("a");
+list.add("m");
 
 
-// list.display()
+
+console.log(list.palindrom());
+
+
+// list.displayy();
