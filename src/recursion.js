@@ -40,3 +40,22 @@
 // let str = "junaidh";
 
 // console.log(reverceSring(str));
+
+
+// function minValue(arr,i=0,max=-Infinity) {
+    
+//     if (arr.length==i) {
+//         return max
+//     }
+
+//     if (arr[i]> max) {
+//         max=arr[i]
+//     }
+
+//     return minValue(arr,i+1,max)
+// }
+
+
+// let arr=[22,33,5,22,55,29]
+
+// console.log(minValue(arr))
