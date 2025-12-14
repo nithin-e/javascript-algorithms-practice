@@ -205,6 +205,115 @@ class LinkedList {
     prev.next = current1.next;
   }
 
+  removeDuplicate() {
+    let current = this.head;
+    let seen = new Set();
+    let prev = null;
+
+    while (current) {
+      if (seen.has(current.data)) {
+        prev.next = current.next;
+      } else {
+        seen.add(current.data);
+        prev = current;
+      }
+
+      current = current.next;
+    }
+  }
+
+  arrayTolinkedList(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      const newNode = new Node(arr[i]);
+
+      if (!this.head) {
+        this.head = newNode;
+        this.tail = newNode;
+      } else {
+        this.tail.next = newNode;
+        this.tail = newNode;
+      }
+    }
+  }
+
+  sort() {
+    console.log(this.head);
+
+    this.head = this.mergeSort(this.head);
+  }
+
+  mergeSort(head) {
+    if (!head || !head.next) return head;
+
+    let getMiddle = this.middle(head);
+    let rightHead = getMiddle.next;
+    getMiddle.next = null;
+
+    let left = this.mergeSort(head);
+    let right = this.mergeSort(rightHead);
+
+    return this.merge(left, right);
+  }
+
+  merge(left, right) {
+    let dummy = new Node(-1);
+    let current = dummy;
+
+    while (left && right) {
+      if (left.data < right.data) {
+        current.next = left;
+        left = left.next;
+      } else {
+        current.next = right;
+        right = right.next;
+      }
+
+      current = current.next;
+    }
+
+    current.next = left || right;
+
+    return dummy.next;
+  }
+
+  middle(head) {
+    let slow = head;
+    let fast = head;
+
+    while (fast.next && fast.next.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    return slow;
+  }
+
+  mergeTwoLinkedList(list2) {
+    this.tail.next = list2.head;
+    this.tail = list2.tail;
+
+    this.sort();
+  }
+
+  sortMiddleThree() {
+    let start = this.head.next.next;
+    let current = start;
+    let arr = [];
+
+    for (let i = 0; i < 3; i++) {
+      arr.push(current.data);
+      current = current.next;
+    }
+
+    arr.sort((a, b) => a - b);
+    current = start;
+
+    for (let i = 0; i < 3; i++) {
+      current.data = arr[i];
+      current = current.next;
+    }
+  }
+
   disply() {
     let current = this.head;
     while (current) {
@@ -215,12 +324,29 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.insert(10);
-list.insert(20);
-list.insert(30);
-list.insert(40);
-list.insert(50);
+// list.insert(10);
+// list.insert(20);
+// list.insert(30);
+// list.insert(30);
+// list.insert(40);
+// list.insert(40);
+// list.insert(50);
 
-list.kthNumDelete(4);
+// list.kthNumDelete(4);
 
+// list.removeDuplicate()
+
+let arr = [12, 23, 21, 34, 3, 12, 5];
+
+list.arrayTolinkedList(arr);
+// list.sort()
+
+// let arr1 = [10, 20, 30, 40];
+
+// const list2 = new LinkedList();
+// list2.arrayTolinkedList(arr1);
+
+// list.mergeTwoLinkedList(list2)
+
+list.sortMiddleThree();
 list.disply();
