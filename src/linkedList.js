@@ -314,6 +314,57 @@ class LinkedList {
     }
   }
 
+
+  swapHeadToTail(){
+    let current=this.head.data
+    this.head.data=this.tail.data
+    this.tail.data=current
+  }
+
+
+  removeDup(){
+
+    let current=this.head
+    let prev=null
+    let seen=new Set()
+
+    while (current) {
+
+      if (seen.has(current.data)) {
+        prev.next=current.next
+      }else{
+        prev=current
+        seen.add(current.data)
+      }
+
+      current=current.next
+    }
+
+
+  }
+
+  removeDupWithOutSet(){
+
+    let current=this.head
+
+    while (current) {
+
+      let runner=current
+      while (runner.next) {
+        if (runner.next.data==current.data) {
+          runner.next=runner.next.next
+        }else{
+          runner=runner.next
+        }
+      }
+
+      current=current.next
+      
+    }
+
+
+  }
+
   disply() {
     let current = this.head;
     while (current) {
@@ -336,7 +387,7 @@ const list = new LinkedList();
 
 // list.removeDuplicate()
 
-let arr = [12, 23, 21, 34, 3, 12, 5];
+let arr = [12, 23, 21, 34, 3, 1, 5,1,5];
 
 list.arrayTolinkedList(arr);
 // list.sort()
@@ -348,5 +399,8 @@ list.arrayTolinkedList(arr);
 
 // list.mergeTwoLinkedList(list2)
 
-list.sortMiddleThree();
+// list.sortMiddleThree();
+// list.swapHeadToTail()
+// list.removeDup()
+list.removeDupWithOutSet()
 list.disply();
